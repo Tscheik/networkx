@@ -8,9 +8,9 @@ Draw networks with matplotlib.
 See Also
 --------
 
-matplotlib:     http://matplotlib.sourceforge.net/
+matplotlib:     http://matplotlib.org/
 
-pygraphviz:     http://networkx.lanl.gov/pygraphviz/
+pygraphviz:     http://pygraphviz.github.io/
 
 """
 #    Copyright (C) 2004-2012 by
@@ -98,7 +98,7 @@ def draw(G, pos=None, ax=None, hold=None, **kwds):
     >>> plt.draw()  # pyplot draw()
 
     Also see the NetworkX drawing examples at
-    http://networkx.lanl.gov/gallery.html
+    http://networkx.github.io/documentation/latest/gallery.html
     """
     try:
         import matplotlib.pyplot as plt
@@ -119,11 +119,10 @@ def draw(G, pos=None, ax=None, hold=None, **kwds):
         else:
             ax = cf.gca()
 
- # allow callers to override the hold state by passing hold=True|False
-
     if 'with_labels' not in kwds:
-        kwds['with_labels'] = False
+        kwds['with_labels'] = 'labels' in kwds
     b = plt.ishold()
+    # allow callers to override the hold state by passing hold=True|False
     h = kwds.pop('hold', None)
     if h is not None:
         plt.hold(h)
@@ -240,7 +239,7 @@ def draw_networkx(G, pos=None, with_labels=True, **kwds):
     >>> limits=plt.axis('off') # turn of axis
 
     Also see the NetworkX drawing examples at
-    http://networkx.lanl.gov/gallery.html
+    http://networkx.github.io/documentation/latest/gallery.html
 
     See Also
     --------
@@ -341,7 +340,7 @@ def draw_networkx_nodes(G, pos,
     >>> nodes=nx.draw_networkx_nodes(G,pos=nx.spring_layout(G))
 
     Also see the NetworkX drawing examples at
-    http://networkx.lanl.gov/gallery.html
+    http://networkx.github.io/documentation/latest/gallery.html
 
     See Also
     --------
@@ -468,7 +467,7 @@ def draw_networkx_edges(G, pos,
     >>> edges=nx.draw_networkx_edges(G,pos=nx.spring_layout(G))
 
     Also see the NetworkX drawing examples at
-    http://networkx.lanl.gov/gallery.html
+    http://networkx.github.io/documentation/latest/gallery.html
 
     See Also
     --------
@@ -676,7 +675,7 @@ def draw_networkx_labels(G, pos,
     >>> labels=nx.draw_networkx_labels(G,pos=nx.spring_layout(G))
 
     Also see the NetworkX drawing examples at
-    http://networkx.lanl.gov/gallery.html
+    http://networkx.github.io/documentation/latest/gallery.html
 
 
     See Also
@@ -793,7 +792,7 @@ def draw_networkx_edge_labels(G, pos,
     >>> edge_labels=nx.draw_networkx_edge_labels(G,pos=nx.spring_layout(G))
 
     Also see the NetworkX drawing examples at
-    http://networkx.lanl.gov/gallery.html
+    http://networkx.github.io/documentation/latest/gallery.html
 
     See Also
     --------
@@ -873,15 +872,15 @@ def draw_networkx_edge_labels(G, pos,
 
 def draw_circular(G, **kwargs):
     """Draw the graph G with a circular layout.
-    
+
     Parameters
     ----------
     G : graph
        A networkx graph
-       
+
     **kwargs : optional keywords
        See networkx.draw_networkx() for a description of optional keywords,
-       with the exception of the pos parameter which is not used by this 
+       with the exception of the pos parameter which is not used by this
        function.
     """
     draw(G, circular_layout(G), **kwargs)
@@ -889,15 +888,15 @@ def draw_circular(G, **kwargs):
 
 def draw_random(G, **kwargs):
     """Draw the graph G with a random layout.
-    
+
     Parameters
     ----------
     G : graph
        A networkx graph
-       
+
     **kwargs : optional keywords
        See networkx.draw_networkx() for a description of optional keywords,
-       with the exception of the pos parameter which is not used by this 
+       with the exception of the pos parameter which is not used by this
        function.
     """
     draw(G, random_layout(G), **kwargs)
@@ -905,15 +904,15 @@ def draw_random(G, **kwargs):
 
 def draw_spectral(G, **kwargs):
     """Draw the graph G with a spectral layout.
-    
+
     Parameters
     ----------
     G : graph
        A networkx graph
-       
+
     **kwargs : optional keywords
        See networkx.draw_networkx() for a description of optional keywords,
-       with the exception of the pos parameter which is not used by this 
+       with the exception of the pos parameter which is not used by this
        function.
     """
     draw(G, spectral_layout(G), **kwargs)
@@ -921,7 +920,7 @@ def draw_spectral(G, **kwargs):
 
 def draw_spring(G, **kwargs):
     """Draw the graph G with a spring layout.
-    
+
     Parameters
     ----------
     G : graph
@@ -929,7 +928,7 @@ def draw_spring(G, **kwargs):
 
     **kwargs : optional keywords
        See networkx.draw_networkx() for a description of optional keywords,
-       with the exception of the pos parameter which is not used by this 
+       with the exception of the pos parameter which is not used by this
        function.
     """
     draw(G, spring_layout(G), **kwargs)
@@ -937,15 +936,15 @@ def draw_spring(G, **kwargs):
 
 def draw_shell(G, **kwargs):
     """Draw networkx graph with shell layout.
-    
+
     Parameters
     ----------
     G : graph
        A networkx graph
-       
+
     **kwargs : optional keywords
        See networkx.draw_networkx() for a description of optional keywords,
-       with the exception of the pos parameter which is not used by this 
+       with the exception of the pos parameter which is not used by this
        function.
     """
     nlist = kwargs.get('nlist', None)

@@ -146,7 +146,7 @@ GraphViz
 
 In conjunction with either
 
-      - PyGraphviz:  http://networkx.lanl.gov/pygraphviz/
+      - PyGraphviz:  http://pygraphviz.github.io/
 
       or
 
@@ -155,13 +155,6 @@ In conjunction with either
 provides graph drawing and graph layout algorithms.
 
   - Download: http://graphviz.org/
-
-Pyparsing
----------
-
-http://pyparsing.wikispaces.com/
-
-Required for pydot, GML file reading.
 
 PyYAML
 ------
